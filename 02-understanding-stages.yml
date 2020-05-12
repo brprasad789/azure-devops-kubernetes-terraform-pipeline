@@ -1,4 +1,3 @@
-
 trigger:
 - master
 
@@ -32,6 +31,11 @@ stages:
           **/*.tf
         TargetFolder: '$(Build.ArtifactStageDirectory)'
     - bash: ls -R $(Build.ArtifactStageDirectory)
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
   # - job: SecondJob
   #   steps:
   #   - bash: echo Build SecondJob
