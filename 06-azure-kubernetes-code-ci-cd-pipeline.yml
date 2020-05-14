@@ -23,14 +23,14 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        containerRegistry: 'rajendra-docker-hub'
-        repository: 'brprasad99/currency-exchange-devops'
-        command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
-        tags: '$(tag)'
+    # - task: Docker@2
+    #   displayName: Build an image
+    #   inputs:
+    #     containerRegistry: 'rajendra-docker-hub'
+    #     repository: 'brprasad99/currency-exchange-devops'
+    #     command: 'buildAndPush'
+    #     Dockerfile: '**/Dockerfile'
+    #     tags: '$(tag)'
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
@@ -49,10 +49,9 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: DownloadBuildArtifacts@0
+    - task: DownloadBuildArtifacts@2
       inputs:
         buildType: 'current'
-        downloadType: 'single'
         artifactName: 'manifests'
         itemPattern: '**/*.yaml'
         downloadPath: '$(System.ArtifactsDirectory)'
