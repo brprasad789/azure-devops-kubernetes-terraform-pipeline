@@ -5,7 +5,7 @@ resources:
 - repo: self
 
 variables:
-  tag: 24
+  tag: '24'
 
 #'$(Build.BuildId)'
 
