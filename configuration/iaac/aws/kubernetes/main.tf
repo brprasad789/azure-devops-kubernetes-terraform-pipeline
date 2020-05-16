@@ -33,7 +33,7 @@ module "awsdev-cluster" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = "awsdev-cluster"
   cluster_version = "1.14"
-  subnets         = ["subnet-0e843600", "subnet-0e843600"] #CHANGE
+  subnets         = ["subnet-0e843600", "subnet-2c12d773"] #CHANGE
   #subnets = data.aws_subnet_ids.subnets.ids
   vpc_id          = aws_default_vpc.default.id
 
